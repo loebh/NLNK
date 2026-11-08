@@ -1,0 +1,37 @@
+# Build outputs
+build/
+build-all-benchmarks/
+build-bench/
+build-bench-ucrt64/
+build-mingw/
+build-ucrt64/
+build-ucrt64-clean/
+build-vqf-native/
+build-wide-release/
+
+# CMake generated files
+CMakeFiles/
+Testing/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+*.cmake
+
+# Compiled binaries and libraries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.out
+*.obj
+*.o
+
+# IDE/editor files
+.vscode/
+.DS_Store
+
+# Logs
+*.log

@@ -1,0 +1,24 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+if(@VQF_PACKAGE_HAS_OPENMP@)
+    find_dependency(OpenMP COMPONENTS CXX)
+endif()
+
+if(@VQF_PACKAGE_HAS_NUMA@ AND NOT TARGET vqf_numa)
+    find_library(VQF_NUMA_LIBRARY NAMES numa)
+    if(NOT VQF_NUMA_LIBRARY)
+        message(FATAL_ERROR "The installed VQF package requires libnuma")
+    endif()
+    add_library(vqf_numa UNKNOWN IMPORTED)
+    set_target_properties(vqf_numa PROPERTIES
+        IMPORTED_LOCATION "${VQF_NUMA_LIBRARY}"
+    )
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/vqfTargets.cmake")
+
+set(vqf_native_FOUND @VQF_PACKAGE_HAS_NATIVE@)
+set(vqf_upstream_FOUND @VQF_PACKAGE_HAS_NATIVE@)
+check_required_components(vqf)

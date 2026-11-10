@@ -7,6 +7,11 @@
 
 namespace vqf {
 using namespace std;
+
+constexpr std::uint8_t FingerprintFilter::empty_slot;
+constexpr std::uint8_t FingerprintFilter::occupied_slot;
+constexpr std::uint8_t FingerprintFilter::deleted_slot;
+
 namespace {
 
 value_type mix(value_type value) noexcept {
